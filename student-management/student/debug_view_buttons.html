@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Debug Student Courses View Buttons</title>
+    <script>
+        function testViewButtons() {
+            console.log('Testing view button functionality...');
+            
+            // Test 1: Check if window.location works
+            console.log('Current URL:', window.location.href);
+            
+            // Test 2: Try manual navigation
+            const testUrl = 'courses.php?course_id=1';
+            console.log('Test URL:', testUrl);
+            
+            // Test 3: Check if buttons exist
+            const buttons = document.querySelectorAll('a[href*="courses.php"]');
+            console.log('Found buttons:', buttons.length);
+            
+            buttons.forEach((button, index) => {
+                console.log(`Button ${index}:`, button.href, button.onclick);
+            });
+        }
+        
+        // Run tests when page loads
+        window.addEventListener('load', testViewButtons);
+    </script>
+</head>
+<body>
+    <h1>Student Courses View Button Debug</h1>
+    <p>Open this page in the same directory as your student courses.php to test view buttons.</p>
+    <p>Check browser console (F12) for debug information.</p>
+    
+    <h2>Common Issues and Solutions:</h2>
+    <ul>
+        <li><strong>JavaScript Errors:</strong> Check console for errors</li>
+        <li><strong>Path Issues:</strong> Ensure courses.php is in same directory</li>
+        <li><strong>Event Conflicts:</strong> Other scripts might interfere</li>
+        <li><strong>Browser Cache:</strong> Try Ctrl+F5 to refresh</li>
+        <li><strong>URL Parameters:</strong> Check if course_id is being passed correctly</li>
+    </ul>
+    
+    <h2>Manual Tests:</h2>
+    <button onclick="window.location.href='courses.php?course_id=1'">Test Course ID 1</button>
+    <button onclick="console.log(window.location.href)">Show Current URL</button>
+    <button onclick="alert('JavaScript is working')">Test Alert</button>
+</body>
+</html>
